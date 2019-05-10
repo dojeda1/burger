@@ -11,9 +11,9 @@ var orm = {
             callback(result);
         });
     },
-    insertOne: function (table, col, value) {
-        var queryString = "INSERT INTO ?? (??, devoured) VALUES (?, FALSE);";
-        connection.query(queryString, [table, col, value], function (err, result) {
+    insertOne: function (table, col1, col2, val1, val2, callback) {
+        var queryString = "INSERT INTO ?? (??, ??) VALUES (?, ?);";
+        connection.query(queryString, [table, col1, col2, val1, val2], function (err, result) {
             if (err) {
                 throw err;
             }
@@ -21,9 +21,9 @@ var orm = {
             callback(result);
         });
     },
-    updateOne: function (table, col, value, id) {
-        var queryString = "UPDATE ?? SET ?? = ? WHERE (id = ?);";
-        connection.query(queryString, [table, col, value, id], function (err, result) {
+    updateOne: function (table, col1, val1, col2, val2, callback) {
+        var queryString = "UPDATE ?? SET ?? = ? WHERE (?? = ?);";
+        connection.query(queryString, [table, col1, val1, col2, val2], function (err, result) {
             if (err) {
                 throw err;
             }
