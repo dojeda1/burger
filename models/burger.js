@@ -7,7 +7,7 @@ var burger = {
         });
     },
     insertOne: function (val, callback) {
-        orm.insertOne("burgers", "burger_name", "devoured", val, "FALSE", function (res) {
+        orm.insertOne("burgers", "burger_name", "devoured", val, 0, function (res) {
             callback(res);
         });
     },

@@ -40,15 +40,33 @@
         <div class="col-6 mx-auto">
 
             <h2 class="text-center">Add New Burger</h2>
-            <form class="create-form">
 
-                <div class="form-group">
-                    <label for="burgerForm">Burger Name:</label>
-                    <input type="text" id="burgerForm" name="name">
-                </div>
+            <div class="form-group">
+                <label for="burgerForm">Burger Name:</label>
+                <input type="text" id="burgerForm" name="name">
+            </div>
+            <button id="add-burger-btn" class="btn btn-secondary">Add Burger</button>
 
-                <button type="submit">Add Burger</button>
-            </form>
         </div>
     </div>
 </div>
+
+<script>
+
+    $("#add-burger-btn").on("click", function () {
+        var newBurger = {
+            name: $("#burgerForm").val().trim(),
+        };
+        console.log(newBurger);
+        $.ajax("/api/burgers", {
+            type: "POST",
+            data: newBurger
+        }).then(
+            function () {
+                console.log("created new burger");
+                location.reload();
+            }
+        );
+    });
+
+</script>
