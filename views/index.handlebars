@@ -14,7 +14,8 @@
                 {{#each burgers}}
                 {{#unless devoured}}
                 <li>
-                    {{burger_name}}<button>Eat it!</button>
+                    {{burger_name}}<button class="btn btn-secondary eat-btn" data-id="{{id}}">Eat
+                        it!</button>
                 </li>
                 {{/unless}}
                 {{/each}}
@@ -50,23 +51,3 @@
         </div>
     </div>
 </div>
-
-<script>
-
-    $("#add-burger-btn").on("click", function () {
-        var newBurger = {
-            name: $("#burgerForm").val().trim(),
-        };
-        console.log(newBurger);
-        $.ajax("/api/burgers", {
-            type: "POST",
-            data: newBurger
-        }).then(
-            function () {
-                console.log("created new burger");
-                location.reload();
-            }
-        );
-    });
-
-</script>
