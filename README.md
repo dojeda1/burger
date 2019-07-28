@@ -6,6 +6,8 @@ The user creates a burger and stores it in a mySQL database. THey can then click
 
 **Visit Web App [Here!](https://secure-ravine-46275.herokuapp.com/)**
 
+![Web App Image](./demo.png)
+
 ### Technologies used
 
 * HTML
